@@ -9,7 +9,7 @@ beautifulsoup
 requests
 Argparse
 
-### How to use
+## How to use
 
 1. Download Python
 2. Download this respository
