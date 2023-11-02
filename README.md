@@ -1,8 +1,15 @@
 # Async Nhentai scrapper
 
-A weirdo's first choice for a python project.If the read me seem small it's because i made it last minute.
+A weirdo's first choice for a python project. If the read me seem small it's because i made it last minute. And also i did not do any research on how github works.
 
-## How to use
+## Dependencies
+
+cloudScraper
+beautifulsoup
+requests
+Argparse
+
+### How to use
 
 1. Download Python
 2. Download this respository
