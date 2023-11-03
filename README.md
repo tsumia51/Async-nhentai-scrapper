@@ -4,6 +4,8 @@ A weirdo's first choice for a python project. If the read me seem small it's bec
 
 ## How to use
 
+**If you're blocked from visting nhentai please use a vpn**
+
 1. Download Python
 2. Download this respository
 3. Type in command prompt py -m pip install -r requirements.txt
