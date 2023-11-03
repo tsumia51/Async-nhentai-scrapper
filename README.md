@@ -13,7 +13,8 @@ Argparse
 
 1. Download Python
 2. Download this respository
-3. The possible format is 
+3. Type in command prompt py -m pip install -r requirements.txt
+4. The possible format is 
 	1. Nhentai.py [num] 
 	2. Nhentai.py [#num] 
 	3. Nhentai.py [num] [num] [num] [num] and a combination of these probably i didn't test it more than twice
