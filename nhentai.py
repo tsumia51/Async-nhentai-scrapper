@@ -20,11 +20,10 @@ if args.nhentaiCodeArg == '0':
 
 scraper = cloudscraper.create_scraper() 
 
-vpnNodeErrorHandle(BeautifulSoup((scraper.get(f"https://nhentai.net/").content), "html.parser"))
+mainNavPage = BeautifulSoup((scraper.get(f"https://nhentai.net/").content), "html.parser")
+vpnNodeErrorHandle(mainNavPage)
 
-getHowManyNhentaiGallery = BeautifulSoup((scraper.get(f"https://nhentai.net/").content), "html.parser")
-
-mostRecentGallery = getHowManyNhentaiGallery.select('#content > div:nth-child(3) > div > a:first-child')[0]['href']
+mostRecentGallery = mainNavPage.select('#content > div:nth-child(3) > div > a:first-child')[0]['href']
 
 num = re.findall(r'\d+', mostRecentGallery)[0]
 
