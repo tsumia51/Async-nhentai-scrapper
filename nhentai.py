@@ -9,11 +9,18 @@ parser = argparse.ArgumentParser()
 parser.add_argument('nhentaiCodeArg', nargs='*', default='0')
 args = parser.parse_args()
 
+def vpnNodeErrorHandle(mainPage):
+    if re.findall('Just a moment', str(mainPage)):
+        print('Use a different vpn server!')
+        quit()
+
 if args.nhentaiCodeArg == '0':
     print('Put in some numbers dummy!')
     quit()
 
 scraper = cloudscraper.create_scraper() 
+
+vpnNodeErrorHandle(BeautifulSoup((scraper.get(f"https://nhentai.net/").content), "html.parser"))
 
 getHowManyNhentaiGallery = BeautifulSoup((scraper.get(f"https://nhentai.net/").content), "html.parser")
 
@@ -62,11 +69,6 @@ for i in nhentaiCode:
 
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
-
-def vpnNodeErrorHandle(mainPage):
-    if re.findall('Just a moment', str(mainPage)):
-        print('Use a different vpn server!')
-        quit()
         
 def getAmountOfImgInDir():
     count = 0 
@@ -99,7 +101,6 @@ def getPath(title):
 def mainPageInfo():
     scraper = cloudscraper.create_scraper() 
     i = BeautifulSoup((scraper.get(f"https://nhentai.net/g/{num}/").content), "html.parser")
-    vpnNodeErrorHandle(i)
     return i
     
 def findMaxPage(mainPage):
