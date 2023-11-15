@@ -1,6 +1,7 @@
 # Async Nhentai scrapper
 
 A weirdo's first choice for a python project. If the read me seem small it's because i made it last minute. And also i did not do any research on how github works.
+btw there's a download button on the nhentai gallery just use that
 
 ## How to use
 
