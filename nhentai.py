@@ -20,10 +20,11 @@ if args.nhentaiCodeArg == '0':
 
 scraper = cloudscraper.create_scraper() 
 
-mainNavPage = BeautifulSoup((scraper.get(f"https://nhentai.net/").content), "html.parser")
-vpnNodeErrorHandle(mainNavPage)
+vpnNodeErrorHandle(BeautifulSoup((scraper.get(f"https://nhentai.net/").content), "html.parser"))
 
-mostRecentGallery = mainNavPage.select('#content > div:nth-child(3) > div > a:first-child')[0]['href']
+getHowManyNhentaiGallery = BeautifulSoup((scraper.get(f"https://nhentai.net/").content), "html.parser")
+
+mostRecentGallery = getHowManyNhentaiGallery.select('#content > div:nth-child(3) > div > a:first-child')[0]['href']
 
 num = re.findall(r'\d+', mostRecentGallery)[0]
 
@@ -119,9 +120,7 @@ def findMaxPage(mainPage):
 def getTitle(mainPage):
     line = mainPage.select('h1.title > span')
     
-    #span class is split into before beautiful after 
-    #idk either
-    return f'{line[0].text}{line[1].text}{line[2].text}'
+    return f'[{num}] {line[1].text}{line[2].text}'
     
 def getImgHostNum(mainPage):
     span = mainPage.select('.thumb-container:last-child > .gallerythumb > img')[0]
