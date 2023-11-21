@@ -137,7 +137,7 @@ def allImgFileType(maxPage):
         i = i + (50 * limit)
         if i >= maxPage:
             break;
-        imageInfo = mainPage.select(f'.thumb-container:nth-child({i + 1}) > .gallerythumb > img')[0]['data-src']
+        imageInfo = imgSrc[i].select('.gallerythumb > img')[0]['data-src']
         #\w+ find all leters
         #$ search at end of string
         fileInfo = re.findall(r'\w+$', imageInfo)[0]
@@ -200,6 +200,7 @@ def loop(maxPage):
 for num in nhentaiCode:
     limit = 0
     mainPage = mainPageInfo()
+    imgSrc = mainPage.select('.thumb-container')
     maxPage =  findMaxPage(mainPage)
     title = getTitle(mainPage)
     
